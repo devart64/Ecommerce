@@ -16,22 +16,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ApiUser implements ApiUserInterface
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
+     /**
      * @ORM\Column(type="string", unique=true)
      */
     private $username;
-
-    /**
-     * @ORM\Column(type="string", unique=true)
-     */
-    private $email;
 
     /**
      * @ORM\Column(type="string")
