@@ -28,11 +28,3 @@ validation:
 categorieProduits:
     path:     /categorie/{categorie}
     defaults: { _controller: EcommerceBundle:Produits:categorie }
-
-rechercheProduits:
-    path:     /recherche
-    defaults: { _controller: EcommerceBundle:Produits:recherche }
-
-
-
-
