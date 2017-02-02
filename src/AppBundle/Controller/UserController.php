@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function dashboardAction()
     {
-        return $this->render('user/dashboard.html.twig');
+        return $this->redirect($this->generateUrl('dashboard'));
     }
 
 
