@@ -9,7 +9,6 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Security\User\ApiUserInterface;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ApiUserRepository")
