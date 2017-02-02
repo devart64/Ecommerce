@@ -32,7 +32,6 @@ class PanierController extends Controller
         if (!$session->has('panier')) $session->set('panier',[]);
         $panier = $session->get('panier');
 
-        //$panier[ID du produit] => quatité
         if (array_key_exists($id, $panier)){
             if ($request->query->get('qte') !== null) $panier[$id] = $request->query->get('qte');
             $this->get('session')->getFlashBag()->add('success', 'Quantité modifiée avec succès.');
@@ -52,7 +51,7 @@ class PanierController extends Controller
 
     public function supprimerAction($id, Request $request)
     {
-         //die('ici');
+         
         $session = $request->getSession();
         $panier = $session->get('panier');
 
@@ -69,10 +68,9 @@ class PanierController extends Controller
     public function panierAction(Request $request)
     {
         $session = $request->getSession();
-        //$session->remove('panier');
+       
         if (!$session->has('panier')) $session->set('panier', []);
-        //var_dump($session->get('panier'));
-        //die();
+        
         $em = $this->getDoctrine()->getManager();
         $produits = $em->getRepository('EcommerceBundle:Produits')->findArray(array_keys($session->get('panier')));
         return $this->render('EcommerceBundle:Default/panier/layout:panier.html.twig', ['produits' => $produits,
