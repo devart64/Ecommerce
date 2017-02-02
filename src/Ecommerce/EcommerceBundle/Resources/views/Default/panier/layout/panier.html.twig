@@ -1,12 +1,5 @@
 {% extends "::layout/layout.html.twig" %}
 
-{% set totalHT = 0  %}
-{% set totalTTC = 0 %}
-{% set refTva = {} %}
-{%  for produit in produits %}
-    {% set refTva = refTva|merge({('%' ~ produit.tva.valeur) : 0}) %}
-{% endfor %}
-
 {% block body %}
     <div class="container">
         <div class="row">
@@ -48,10 +41,6 @@
                                 <td>{{ produit.prix * panier[produit.id] }} €</td>
                             </form>
                         </tr>
-
-                        {% set totalHT = totalHT + (produit.prix * panier[produit.id]) %}
-                        {% set totalTTC = totalTTC + (produit.prix * panier[produit.id])|tva(produit.tva.multiplicate) %}
-                        {% set refTva = refTva|merge({('%' ~ produit.tva.valeur): refTva['%' ~ produit.tva.valeur] + (produit.prix * panier[produit.id])|montantTva(produit.tva.multiplicate)}) %}
                     {% endfor %}
                     </tbody>
                 </table>
