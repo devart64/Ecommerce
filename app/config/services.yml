@@ -12,3 +12,9 @@ services:
   app.api_token_authenticator:
     class: AppBundle\Security\ApiTokenAuthenticator
     arguments: ["@app.api_user_repository"]
+
+  app.api_user_repository:
+    class: AppBundle\Repository\ApiUserRepository
+    factory: [ "@doctrine.orm.default_entity_manager", getRepository ]
+    arguments: [AppBundle:ApiUser]
+    
