@@ -17,4 +17,4 @@ parameters:
     mailer_from: true
 
     # A secret key that's used to generate certain security-related tokens
-    secret:780ebdb0df19176574d871f60cd77ba35fb54fdf
+    secret:    780ebdb0df19176574d871f60cd77ba35fb54fdf
