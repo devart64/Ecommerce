@@ -1,0 +1,31 @@
+
+ecommerce:
+    resource: "@EcommerceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pages:
+    resource: "@PagesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+logout:
+    path: logout
+
+register:
+    path: /register
+    defaults: { _controller: AppBundle:Registration:register}
+
+login:
+    path: /login
+    defaults: { _controller: AppBundle:Security:login}
+
+dashboard:
+    path:     /dashboard
+    defaults: { _controller: AppBundle:User:dashboard }
+
+utilisateurs:
+    path:     /utilisateurs
+    defaults: { _controller: AppBundle:User:utilisateurs }
