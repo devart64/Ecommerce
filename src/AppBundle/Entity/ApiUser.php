@@ -9,12 +9,21 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Security\User\ApiUserInterface;
+use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ApiUserRepository")
  */
 class ApiUser implements ApiUserInterface
 {
+     /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+     
      /**
      * @ORM\Column(type="string", unique=true)
      */
@@ -41,6 +50,14 @@ class ApiUser implements ApiUserInterface
     public function getUsername()
     {
         return $this->username;
+    }
+     
+     /**
+     * {@inheritdoc}
+     */
+      public function getId()
+    {
+        return $this->id;
     }
 
     /**
