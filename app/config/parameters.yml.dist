@@ -5,7 +5,7 @@ parameters:
     database_host:     127.0.0.1
     database_port:     3306
     database_name:     ecommerce
-    database_user:     root
+    database_user:     monty
     database_password: valerie
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
