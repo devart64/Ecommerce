@@ -1,0 +1,47 @@
+<div class="col-sm-3">
+
+    <div id="admin" class="well">
+        <ul class="nav nav-list">
+            <li>
+                <a href="{{path('adminProduits_index')}}">Produits</a>
+            </li>
+            <li>
+                <a href="{{path('categories_index')}}">Catégories produits</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="admin" class="well">
+        <ul class="nav nav-list">
+            <li>
+                <a href="{{path('clients')}}">Clients</a>
+            </li>
+            <li>
+                <a href="{{path('commandes_index')}}">Commandes</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="admin" class="well">
+        <ul class="nav nav-list">
+            <li>
+                <a href="{{path('adminPages_index')}}">Pages</a>
+            </li>
+        </ul>
+    </div>
+    <div id="admin" class="well">
+        <ul class="nav nav-list">
+            <li>
+                <a href="{{ absolute_url('https://dashboard.stripe.com/test/dashboard') }}">Statistiques des ventes</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="admin" class="well">
+        <ul class="nav nav-list">
+            <li>
+                <a href="{{ path('produits') }}">Retour au site</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -18,3 +18,5 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:    780ebdb0df19176574d871f60cd77ba35fb54fdf
+    stripe_public_key: pk_test_2OHrZ5sKLopNc3J4oYts12kQ
+    stripe_secret_key: sk_test_72A4J5pZz30gqeKeHY79TuzV

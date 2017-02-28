@@ -1,0 +1,21 @@
+{% extends 'layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <div class="span9">
+        <h1>Liste des adresses</h1>
+        <hr>
+        {% for adresse in user.adresses %}
+
+            <div class="span9">
+                <h4>Adresse {{ loop.index }} :</h4>
+                {{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} - {{ adresse.pays }}
+                <br/>{{ adresse.prenom }} {{ adresse.nom }}
+                <hr>
+            </div>
+
+        {% endfor %}
+        <div class="span9">
+            <a href="{{ path('clients') }}" class="btn btn-primary"><i class="icon-arrow-left"></i> Retour</a>
+        </div>
+    </div>
+{% endblock %}

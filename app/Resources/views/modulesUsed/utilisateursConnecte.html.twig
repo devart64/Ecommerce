@@ -1,38 +1,26 @@
+<div class="well">
+    <div class="row">
+<div class="col-lg-12">
 
-
-    <div class="well">
-        <ul class="nav nav-list">
+        <ul class="list-unstyled">
+            {% if is_granted('ROLE_USER')%}
             <li>
                 <a href="{{ path('utilisateurs') }}">Editer mes informations</a>
             </li>
             <li>
-                <a href="{{ path('change_password') }}">Changer mon mot de passe</a>
+                <a href="{{path('factures')}}">Mes factures</a>
             </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
             <li>
-                <a href="facture.php">Mes factures</a>
+                <a href="{{ path('admin') }}">Administration</a>
             </li>
-            <li>
-                <a href="adresses.php">Mes adresses</a>
-            </li>
+            {% endif %}
             <li>
                 <a href="{{ path('logout')}}">Deconnexion</a>
             </li>
         </ul>
     </div>
-
-    <div class="well">
-        <div class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path('panier') }}">
-                <i class="icon-shopping-cart"></i>
-                3 item - 54,27 €
-                <b class="caret"></b></a>
-
-            <div class="dropdown-menu well" role="menu" aria-labelledby="dLabel">
-                <p>Item x 1 <span class="pull-right">18,09 €</span></p>
-                <p>Item x 1 <span class="pull-right">18,09 €</span></p>
-                <p>Item x 1 <span class="pull-right">18,09 €</span></p>
-                <a href="{{ path('panier') }}" class="btn btn-primary">Mon Panier</a>
-            </div>
-        </div>
-    </div>
+</div>
+</div>
 
