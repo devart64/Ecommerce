@@ -10,7 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @UniqueEntity(fields="email", message="This email address is already in use")
  */
-class User implements UserInterface
+class User 
 {
     /**
      * @ORM\Id;
