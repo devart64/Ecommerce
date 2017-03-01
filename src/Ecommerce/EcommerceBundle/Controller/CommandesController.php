@@ -132,8 +132,7 @@ class CommandesController extends Controller
 
          \Stripe\Stripe::setApiKey("sk_test_72A4J5pZz30gqeKeHY79TuzV");
 
-         // Get the credit card details submitted by the form
-         $token = $_POST['stripeToken'];
+         
 
          // Create a charge: this will charge the user's card
          try {
