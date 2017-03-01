@@ -36,15 +36,6 @@ class Media
 
     public $file;
 
-    public function getUploadRootDir()
-    {
-        return __DIR__.'/../../../../web/uploads';
-    }
-
-    public function getAbsolutePath()
-    {
-        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
-    }
 
     /**
      * @ORM\PrePersist()
