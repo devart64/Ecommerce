@@ -18,7 +18,7 @@ use AppBundle\Entity\User;
 
 class CommandesController extends Controller
 {
-    public function facture($request)
+    public function factureAction($request)
     {
         $session = $request->getSession();
         $em = $this->getDoctrine()->getManager();
@@ -155,3 +155,4 @@ class CommandesController extends Controller
          return $this->redirect($this->generateUrl('factures'));
      }
 }
+  
