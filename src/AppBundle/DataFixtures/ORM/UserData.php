@@ -47,6 +47,8 @@ class UserData extends AbstractFixture implements FixtureInterface, ContainerAwa
 
         $manager->persist($user1);
 
+
+
         $manager->flush();
 
         $this->addReference('user1', $user1);

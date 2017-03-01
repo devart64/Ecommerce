@@ -101,6 +101,7 @@ class Tva
         return $this->nom;
     }
 
+
     /**
      * Set valeur
      *
@@ -123,5 +124,10 @@ class Tva
     public function getValeur()
     {
         return $this->valeur;
+    }
+
+    public function __toString()
+    {
+        return $this->getNom();
     }
 }

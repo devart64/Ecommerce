@@ -8,27 +8,27 @@
 
 namespace Ecommerce\EcommerceBundle\Controller;
 
+use Ecommerce\EcommerceBundle\Entity\Categories;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 class ProduitsController extends Controller
 {
-    public function categorieAction($categorie)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $produits = $em->getRepository('EcommerceBundle:Produits')->byCategorie($categorie);
-
-        return $this->render('EcommerceBundle:Default/produits/layout:produits.html.twig', ['produits' => $produits]);
-    }
-
-    public function produitsAction(Request $request)
+    public function produitsAction(Request $request, Categories $categorie = null)
     {
         $session = $request->getSession();
         $em = $this->getDoctrine()->getManager();
-        $produits = $em->getRepository('EcommerceBundle:Produits')->findBy(['disponible' => 1]);
+        if ($categorie != null)
+        {
+            $findProduits = $em->getRepository('EcommerceBundle:Produits')->byCategorie($categorie);
+        } else
+            {
+                $findProduits = $em->getRepository('EcommerceBundle:Produits')->findBy(['disponible' => 1]);
+            }
         if ($session->has('panier'))
             $panier = $session->get('panier');
         else
             $panier = false;
+        $produits = $this->get('knp_paginator')->paginate($findProduits, $request->query->get('page',1)/*page number*/, 12/*limit per page*/);
 
         return $this->render('EcommerceBundle:Default/produits/layout:produits.html.twig', ['produits' => $produits,
                                                                               'panier' => $panier]);
@@ -48,9 +48,6 @@ class ProduitsController extends Controller
             $panier = false;
 
         return $this->render('EcommerceBundle:Default/produits/layout:presentation.html.twig', ['produit' => $produit,
-                                                                                                 'panier' => $panier]);
+                                                                                 'panier' => $panier]);
     }
-
-
-
 }

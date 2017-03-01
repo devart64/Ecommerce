@@ -16,7 +16,7 @@ class MontantTvaExtension extends \Twig_Extension
         return [new \Twig_SimpleFilter('montantTva', [$this,'montantTva'])];
     }
 
-    function montantTva($prixHT, $tva)
+    public function montantTva($prixHT, $tva)
     {
         return round ((($prixHT / $tva) - $prixHT),2);
     }

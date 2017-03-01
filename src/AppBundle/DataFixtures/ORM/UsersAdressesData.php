@@ -29,6 +29,7 @@ class UsersAdressesData extends AbstractFixture implements OrderedFixtureInterfa
         $adresse1->setComplement('Appartement n°2');
         $manager->persist($adresse1);
 
+
         $manager->flush();
 
     }

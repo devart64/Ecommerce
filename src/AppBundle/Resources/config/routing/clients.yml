@@ -1,0 +1,14 @@
+clients:
+    path:     /
+    defaults: { _controller: "AppBundle:UserAdmin:index" }
+    methods:  GET
+
+adressesClients:
+    path:     /{id}/adresses
+    defaults: { _controller: "AppBundle:UserAdmin:user" }
+    methods:  GET
+
+facturesClients:
+    path:     /{id}/factures
+    defaults: { _controller: "AppBundle:UserAdmin:user" }
+    methods:  GET

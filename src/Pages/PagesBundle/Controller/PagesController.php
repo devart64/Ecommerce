@@ -3,6 +3,7 @@
 namespace Pages\PagesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Pages\PagesBundle\AdminPagesController;
 
 class PagesController extends Controller
 {

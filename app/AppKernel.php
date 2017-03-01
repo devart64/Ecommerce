@@ -1,5 +1,6 @@
 <?php
 
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
@@ -19,6 +20,7 @@ class AppKernel extends Kernel
             new Ecommerce\EcommerceBundle\EcommerceBundle(),
             new Pages\PagesBundle\PagesBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

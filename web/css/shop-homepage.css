@@ -1,0 +1,450 @@
+/*!
+ * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+html{
+    margin:0;
+    padding:0;
+}
+body {
+    padding-top: 180px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.btn{
+    font-size:1em;
+}
+
+.caption h4{
+    font-size: 1em;
+    text-align: justify;
+}
+
+ .brand{
+    font-size: 3em;
+}
+
+
+
+.brand:hover{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+.pagination{
+    margin-left: -50px;
+
+}
+#back{
+    width:100%;
+}
+
+#back-panier{
+    width:100%;
+    background: url(../img/confetties.png);
+}
+
+
+
+#baner{
+    max-width:1900px;
+}
+
+#admin{
+    background-color: #0f74a8;
+}
+
+#admin a{
+    color: #ffffff;
+}
+
+#admin a:hover{
+    color: #0f74a8;
+}
+
+#admin a:active{
+    color: red;
+}
+
+#footer {
+background: url(../img/bonbonBig.png) no-repeat;
+    width: 100%;
+    padding-bottom:-50px;
+}
+
+#footer-baner{
+    max-width:100%;
+    height:80px;
+    background-color: rgba(147, 198, 239, 0.4);
+    padding-bottom:50px;
+    padding-left:22%
+}
+.bot{
+    position: relative;
+    width:100%;
+    height:50px;
+    color: #FFC12D;
+    font-size:2em;
+    text-align: center;
+    background-color: #CD0A0A;
+    margin-left: 0;
+    margin-top:110px;
+    padding-top: 6px;
+    padding-bottom:-10px;
+    z-index: 1;
+}
+
+
+#infos{
+    width:100%;
+    padding-left:18%;
+}
+
+.copyright{
+    position: absolute;
+    color: white;
+    z-index: 10;
+    margin-top: -20px;
+    padding-top: -20px;
+    height:5px;
+    padding-bottom: 0;
+}
+
+.well{
+    margin-left: 10px;
+    background-color: #CD0A0A;
+}
+.well li a{
+    color: #FFC12D;
+}
+.well li{
+    font-size: 1.2em;
+    color: white;
+}
+
+#btn-panier{
+    margin-left: -80px;
+    margin-top: 40px;
+}
+h4{
+    color: #0f74a8;
+}
+
+.brand img{
+    max-font-size: 100%;
+}
+
+.navbar{
+    position: fixed;
+    top:0;
+}
+
+.form-group-sm{
+
+}
+#users_adresses_nom{
+    margin-left:64px;
+}
+
+#users_adresses_prenom{
+    margin-left:43px;
+}
+
+#users_adresses_telephone{
+    margin-left:24px;
+}
+
+#users_adresses_adresse{
+    margin-left:40px;
+}
+
+#users_adresses_cp{
+    margin-left:77px;
+}
+
+#users_adresses_ville{
+    margin-left:68px;
+}
+
+#users_adresses_pays{
+    margin-left:63px;
+}
+
+#users_adresses_complement{
+    margin-left:10px;
+}
+
+
+@media screen and (max-width: 767px) {
+    body{
+        margin:0;
+        padding:0;
+    }
+    .container{
+        width:100%;
+        padding:0;
+        margin-left:-5px;
+    }
+
+    #produits{
+        margin-left: -40px;
+    }
+
+    .well {
+        margin-top:25%;
+        margin-bottom:-150px;
+        margin-left: 0;
+        background-color: #CD0A0A;
+    }
+    
+    #carous{
+        margin-top:160px;
+        margin-left:-15px;
+    }
+    
+    #footer {
+        background: url(../img/bonbonBig.png) no-repeat;
+        width: 100%;
+        padding-bottom: -150px;
+    }
+
+    #footer-baner {
+        display: none;
+        width: 100%;
+        height: 80px;
+        background-color: rgba(147, 198, 239, 0.4);
+        padding-bottom: 50px;
+        padding-left: -120px;
+    }
+
+    #infos {
+        width: 100%;
+        padding-left: 6%;
+    }
+
+    #cgv{
+        width:180px;
+    }
+
+    #mag{
+        width: 150px;
+        position: relative;
+        top: -77px;
+        left:36%;
+    }
+
+    #contact{
+        width:130px;
+        position: relative;
+        top:-153px;
+        right:-75%;
+    }
+
+    .bot {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        color: #FFC12D;
+        font-size: 1em;
+        text-align: center;
+        background-color: #CD0A0A;
+        margin-left: 0;
+        margin-top: 20px;
+        padding-top: 10px;
+        padding-bottom: -10px;
+        z-index: 1;
+    }
+
+    .copyright {
+        position: absolute;
+        color: white;
+        font-size: 0.6em;
+        z-index: 10;
+        margin-top: -16px;
+        padding-top: -20px;
+        height: 5px;
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #footer-baner {
+        display: none;
+        width: 100%;
+        height: 80px;
+        background-color: rgba(147, 198, 239, 0.4);
+        padding-bottom: 50px;
+        padding-left: -120px;
+    }
+
+    #infos {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    #cgv {
+        width: 170px;
+    }
+
+    #mag{
+        width:140px;
+        margin-left:15%;
+    }
+
+   #contact{
+       width:140px;
+       margin-left:20%;
+   }
+
+    .copyright {
+        position: absolute;
+        left:10px;
+        color: white;
+        font-size: 0.6em;
+        z-index: 10;
+        margin-top: -12px;
+        padding-top: -15px;
+        height: 5px;
+        padding-bottom: 0;
+    }
+
+    .bot {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        color: #FFC12D;
+        font-size: 1em;
+        text-align: center;
+        background-color: #CD0A0A;
+        margin-left: 0;
+        margin-top: 110px;
+        padding-top: 15px;
+        padding-bottom: -12px;
+        z-index: 1;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #footer-baner {
+        display: none;
+        width: 100%;
+        height: 80px;
+        background-color: rgba(147, 198, 239, 0.4);
+        padding-bottom: 50px;
+    }
+
+    #infos {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    #cgv {
+        width: 170px;
+        padding-left: 80px;
+    }
+
+    #mag {
+        width: 140px;
+        margin-top:-100px;
+        margin-left: 45%;
+    }
+
+    #contact {
+        width: 150px;
+        margin-top:-75px;
+        margin-left: 85%;
+    }
+
+    .copyright {
+        position: absolute;
+        left: 10px;
+        color: white;
+        font-size: 0.6em;
+        z-index: 10;
+        margin-top: -12px;
+        padding-top: -15px;
+        height: 5px;
+        padding-bottom: 0;
+    }
+
+    .bot {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        color: #FFC12D;
+        font-size: 1em;
+        text-align: center;
+        background-color: #CD0A0A;
+        margin-left: 0;
+        margin-top: 110px;
+        padding-top: 15px;
+        padding-bottom: -12px;
+        z-index: 1;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    #infos {
+        width: 100%;
+        padding-left: 0;
+    }
+    #contact {
+        width: 250px;
+    }
+}
+
+@media (min-width: 1400px) {
+    #infos {
+        width: 100%;
+        padding-left: 10%;
+    }
+}
+
+@media (min-width: 1600px) {
+    #infos {
+        width: 100%;
+        padding-left: 18%;
+    }
+}

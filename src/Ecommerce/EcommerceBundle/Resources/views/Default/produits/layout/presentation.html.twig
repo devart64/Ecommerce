@@ -6,25 +6,20 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="span3">
+            <div class="col-md-3">
                 {% include '::modulesUsed/navigation.html.twig' %}
                 {{ render(controller('EcommerceBundle:Panier:menu')) }}
-
             </div>
+            <div class="col-md-9">
+                <div id="thumb-presentation" class="thumbnail">
+                        <img class="img-responsive" src="{{ asset('uploads/' ~ produit.image.path ) }}" alt="bonbon" width="800" height="300">
 
-
-
-            <div class="span9">
-                <div class="row">
-                    <div class="span5">
-                        <img src="{{ produit.image.path }}" alt="bonbon" width="470" height="310">
-                    </div>
-
-                    <div class="span4">
+                    <div class="caption-full">
+                        <h4 class="pull-right">{{ produit.prix|tva(produit.tva.multiplicate) }} €</h4>
                         <h4>{{ produit.nom }}</h4>
                         <h5>{{ produit.categorie.nom}}</h5>
                         <p>{{ produit.description }}</p>
-                        <h4>{{ produit.prix|tva(produit.tva.multiplicate) }} €</h4>
+
                         {% if panier[produit.id] is not defined %}
                         <form action="{{ path ('ajouter', {'id' : produit.id }) }}"method="get">
                             <select name="qte" class="span1">
@@ -33,7 +28,7 @@
                                 {% endfor %}
                             </select>
                             <div>
-                                <button class="btn btn-primary">Ajouter au panier</button>
+                                <button id="btn-panier" class="btn btn-primary">Ajouter au panier</button>
                             </div>
                         </form>
                         {% else %}

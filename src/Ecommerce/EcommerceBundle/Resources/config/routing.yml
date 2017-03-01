@@ -1,3 +1,23 @@
+admin:
+    resource: "@EcommerceBundle/Resources/config/routing/admin.yml"
+    prefix:   /admin
+
+ecommerce_adminProduits:
+    resource: "@EcommerceBundle/Resources/config/routing/produits.yml"
+    prefix:   /admin/produits
+
+ecommerce_admincategories:
+        resource: "@EcommerceBundle/Resources/config/routing/categories.yml"
+        prefix:   /admin/categories
+
+ecommerce_admincommandes:
+        resource: "@EcommerceBundle/Resources/config/routing/commandes.yml"
+        prefix:   /admin/commandes
+
+adminclients:
+    resource: "@AppBundle/Resources/config/routing/clients.yml"
+    prefix:   /admin/clients
+
 produits:
     path:     /
     defaults: { _controller: EcommerceBundle:Produits:produits }
@@ -25,6 +45,22 @@ validation:
     path:     /panier/validation
     defaults: { _controller: EcommerceBundle:Panier:validation }
 
+livraisonAdresseSuppression:
+    path:    /livraison/adresse/suppression/{id}
+    defaults: {_controller: EcommerceBundle:Panier:adresseSuppression }
+
+validationCommande:
+    path:    /banque/{id}
+    defaults: {_controller: EcommerceBundle:Commandes:validationCommande}
+
 categorieProduits:
     path:     /categorie/{categorie}
-    defaults: { _controller: EcommerceBundle:Produits:categorie }
+    defaults: { _controller: EcommerceBundle:Produits:produits }
+
+factures:
+    path:    /profile/factures
+    defaults: { _controller: AppBundle:User:facture}
+
+facturesPDF:
+    path:    /profile/factures/pdf/{id}
+    defaults: { _controller: AppBundle:User:facturePDF}

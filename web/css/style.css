@@ -1,4 +1,92 @@
-body {
-	padding-bottom: 40px;
-    padding-top: 60px;
+
+
+.stripe-button-el{
+    float: right;
 }
+.bonbon{width: 320px!important;
+    height: 150px !important;
+}
+ /** admin categories **/
+#ecommerce_ecommercebundle_categories_nom{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#ecommerce_ecommercebundle_categories_image_file{
+    margin-left:48px;
+    margin-top: -25px;
+}
+
+#ecommerce_ecommercebundle_categories_image_name{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+#cat-del{
+    margin-left: 70px;
+    margin-top: -56px;
+}
+
+/** admin produit **/
+#prod-del{
+    margin-left: 90px;
+    margin-top: -56px;
+}
+
+#produits_nom{
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+#produits_description{
+    margin-bottom: -25px;
+    margin-left: 12px;
+}
+
+#produits_prix{
+    margin-top:35px;
+    margin-left: 65px;
+    margin-bottom: 10px;
+}
+
+#produits_disponible{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#produits_image{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+#produits_image_file{
+    margin-left: 88px;
+    margin-top: -25px;
+    margin-bottom:20px;
+}
+
+#produits_image_name{
+    margin-left: 50px;
+}
+
+#produits_tva{
+    margin-left: 65px;
+    margin-bottom: 20px;
+}
+
+#produits_categorie{
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+/* presentation*/
+
+#thumb-presentation{
+
+}
+
+#thumb-presentation img{
+    height:300px;
+}
+

@@ -1,77 +1,50 @@
 {% extends "::layout/layout.html.twig" %}
 
 {% block body %}
+{% if is_granted('ROLE_USER')  %}
 <div class="container">
     <div class="row">
         <div class="span12">
+
             <h2>Livraison</h2>
             <div id="collapseOne" class="accordion-body collapse in">
                 <div class="accordion-inner">
                     <div class="span4">
-                        <form action="{{ path('validation') }}">
+                        {%  if user.adresses|length != 0 %}
+                        <form action="{{ path('validation') }}"method="post">
                             <h4>Adresse de livraison</h4>
+                            {%  for adresse in user.adresses %}
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                3b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>
+                                <input type="radio" name="livraison"  value="{{adresse.id}}" {% if loop.index0 == 0 %}checked="checked"{% endif %}>
+                                {{adresse.adresse}}, {{adresse.cp}} {{adresse.ville}} - {{ adresse.pays }}
+                                <a href="{{ path('livraisonAdresseSuppression', {'id' : adresse.id}) }}"><i class="icon-trash"></i></a>
+                           <br />{{ adresse.prenom }} {{ adresse.nom }}
                             </label>
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                4b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                5b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>
-                            </label>
+                            {% endfor %}
 
-                            <br/><br/>
+                            <br />
 
                             <h4>Adresse de facturation</h4>
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios2" id="optionsRadios1" value="option1"
-                                       checked="">
-                                3b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios2" id="optionsRadios1" value="option1"
-                                       checked="">
-                                4b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios2" id="optionsRadios1" value="option1"
-                                       checked="">
-                                5b rue jules paulo, 75 000 Paris <a href="#"><i class="icon-trash"></i></a>
-                            </label>
-                            <button class="btn btn-primary">Valider mon adresse de livraison</button>
+                            {% for adresse in user.adresses %}
+                                <label class="radio">
+                                    <input type="radio" name="facturation" value="{{ adresse.id }}" {% if loop.index0 == 0 %}checked="checked"{% endif %}>
+                                    {{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} - {{ adresse.pays }}
+                                    <a href="{{ path('livraisonAdresseSuppression', {'id' : adresse.id}) }}"><i class="icon-trash"></i></a>
+                                    <br/>{{ adresse.prenom }} {{ adresse.nom }}
+                                </label>
+                            {% endfor %}
+                            <br />
+                            <button class="btn btn-primary">Valider mes adresses </button>
                         </form>
+                        {% endif %}<br/>
                     </div>
 
 
-                    <div class="span4 offset2">
-                        <h4>Ajouter une nouvelle adresse</h4>
-                        <form>
-                            <label>Nom</label>
-                            <input type="text">
-
-                            <label>Prénom</label>
-                            <input type="text">
-
-                            <label>Adresse</label>
-                            <input type="text">
-
-                            <label>Ville</label>
-                            <input type="text">
-
-                            <label>Code postal</label>
-                            <input type="text">
-
-                            <label>Ville</label>
-                            <input type="text">
-
-                            <label>Téléphone</label>
-                            <input type="text">
-
-                            <br/>
-                            <button class="btn btn-primary">Ajouter</button>
+                    <div  class="span4 offset2">
+                        <h4>Ajouter une nouvelle adresse</h4><hr>
+                        <form  class="form-group-sm" action="{{ path('livraison') }}" method="post">
+                           {{ form_widget(form) }}<br/>
+                            <button class="btn btn-primary"type="submit">Ajouter</button>
                         </form>
                     </div>
                 </div>
@@ -80,4 +53,64 @@
         </div>
     </div>
 </div>
+
+   {% else %}
+       <div class="container">
+           <div class="row">
+               <div class="span12">
+                   <h3>Vous devez être connecté pour valider votre panier</h3><hr>
+                   <div id="collapseOne" class="accordion-body collapse in">
+                       <div class="accordion-inner">
+                           <div class="span4">
+                               <h4>Pas encore inscrit ?</h4>
+                               <em>
+                                   nous vous invitons à vous inscrire<br/>
+                                   afin de passer votre commande.
+                               </em>
+                               <br/><br/>
+                               <a href="{{ path('register') }}" class="btn btn-primary">S'inscrire</a>
+                           </div>
+                           <div class="span4 offset2">
+                               <h4>Connexion</h4><hr>
+                               <form action="{{ path('security_login_check') }}" method="post">
+                                   <fieldset>
+                                       <div class="form-group">
+                                           <label for="email" class="col-md-4 control-label">E-mail</label>
+
+                                           <div class="col-md-8">
+                                               <input id="email" type="email" class="form-control" name="_email"
+                                                      value=""> <br/>
+                                           </div>
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label for="password" class="col-md-4 control-label">Mot de passe</label>
+
+                                           <div class="col-md-8">
+                                               <input id="password" type="password" class="form-control"
+                                                      name="_password">
+                                           </div>
+                                       </div>
+                                       <div class="form-group">
+                                           <div class="col-md-6 "><br/>
+                                               <button type="submit" class="btn btn-primary">
+                                                   <i class="fa fa-btn fa-sign-in"></i> Connexion
+                                               </button>
+<hr>
+                                           </div>
+                                       </div>
+
+                                   </fieldset>
+                               </form>
+                               <br/>
+
+                           </div>
+
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <hr><br/>
+    {% endif %}
 {% endblock %}

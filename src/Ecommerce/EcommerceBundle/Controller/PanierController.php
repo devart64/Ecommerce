@@ -8,6 +8,8 @@
 
 namespace Ecommerce\EcommerceBundle\Controller;
 
+use Ecommerce\EcommerceBundle\Entity\UsersAdresses;
+use Ecommerce\EcommerceBundle\Form\UsersAdressesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -76,14 +78,71 @@ class PanierController extends Controller
                                                                           'panier' => $session->get('panier')]);
     }
 
-    public function livraisonAction()
+    public function adresseSuppressionAction($id)
     {
-        return $this->render('EcommerceBundle:Default/panier/layout:livraison.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('EcommerceBundle:UsersAdresses')->find($id);
+
+        if ($this->container->get('security.token_storage')->getToken()->getUser() != $entity->getUser() || !$entity)
+        {
+            return $this->redirect($this->generateUrl('livraison'));
+        }
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('livraison'));
     }
 
-    public function validationAction()
+    public function livraisonAction(Request $request)
     {
-        return $this->render('EcommerceBundle:Default/panier/layout:validation.html.twig');
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $entity = new UsersAdresses();
+        $form = $this->createForm(UsersAdressesType::class, $entity);
+
+        if ($request->isMethod('POST'))
+        {
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $entity->setUser($user);
+                $em->persist($entity);
+                $em->flush();
+                return $this->redirect($this->generateUrl('livraison'));
+            }
+        }
+        return $this->render('EcommerceBundle:Default/panier/layout:livraison.html.twig', ['user' => $user,
+                                                                            'form' => $form->createView()]);
+    }
+
+    public function setLivraisonOnSession(Request $request)
+    {
+        $session = $request->getSession();
+        if(!$session->has('adresse')) $session->set('adresse',[]);
+        $adresse = $session->get('adresse');
+
+        if ($request->request->get('livraison') != null && $request->request->get('facturation')!= null)
+        {
+            $adresse['livraison'] = $request->request->get('livraison');
+            $adresse['facturation'] = $request->request->get('facturation');
+        }else {
+            return $this->redirect($this->generateUrl('validation'));
+        }
+        $session->set('adresse', $adresse);
+        return $this->redirect($this->generateUrl('validation'));
+    }
+
+    public function validationAction(Request $request)
+    {
+        if ($request->isMethod('POST'))
+          $this->setLivraisonOnSession($request);
+
+        $em = $this->getDoctrine()->getManager();
+        $prepareCommande = $this->forward('EcommerceBundle:Commandes:prepareCommande');
+        $commande = $em->getRepository('EcommerceBundle:Commandes')->find($prepareCommande->getContent());
+
+
+        return $this->render('EcommerceBundle:Default/panier/layout:validation.html.twig', ['commande'=> $commande]);
     }
 
 }
